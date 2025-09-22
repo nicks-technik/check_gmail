@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+
+# Credentials
+credentials.json
+token.json
+gmail_check.log
+uv.lock
+.python-version
