@@ -101,14 +101,18 @@ def main():
         if (i + 1) % 10 == 0:
             logger.info(f"Processing email {i + 1}/{len(messages)}...")
         msg = service.users().messages().get(userId="me", id=message["id"]).execute()
+        logger.debug(f"Processing message {message['id']}")
+        logger.debug(f"Message payload: {msg['payload']}")
         headers = msg["payload"]["headers"]
         subject = next(
             (header["value"] for header in headers if header["name"] == "Subject"),
             "(No Subject)",
         )
+        logger.debug(f"Subject: {subject}")
         date_str = next(
             (header["value"] for header in headers if header["name"] == "Date"), None
         )
+        logger.debug(f"Date: {date_str}")
         if not date_str:
             logger.warning(f"Could not find date for message {message['id']}")
             continue
@@ -129,14 +133,14 @@ def main():
         if len(sizes) > 1 and len(set(sizes)) > 1:
             duplicate_count += 1
             logger.info("Duplicate email found with different sizes:")
-            logger.info(f"  Subject: {subject}")
+            logger.info(f"  Subject:\t{subject}")
             logger.info(f"  Date: {date}")
             logger.info(f"  Time: {hour:02d}:{minute:02d}")
 
     logger.info(f"Found {duplicate_count} duplicate email groups.")
-    logger.info("Script finished.")
 
 
 if __name__ == "__main__":
     logger.info("Starting script...")
     main()
+    logger.info("Script finished.")
