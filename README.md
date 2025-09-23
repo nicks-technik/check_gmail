@@ -2,13 +2,38 @@
 
 This program uses the Gmail API to identify duplicate emails with the same subject and timestamp but different sizes (due to varying attachments).
 
+## Setup
 
-**Set up Gmail API credentials:**
+1.  **Install `uv`:**
+
+    ```bash
+    pip install uv
+    ```
+
+2.  **Create a virtual environment:**
+
+    ```bash
+    uv venv
+    ```
+
+3.  **Activate the virtual environment:**
+
+    ```bash
+    source .venv/bin/activate
+    ```
+
+4.  **Install dependencies:**
+
+    ```bash
+    uv pip install .
+    ```
+
+5.  **Set up Gmail API credentials:**
 
     - Follow the instructions in the [Google Cloud documentation](https://developers.google.com/gmail/api/quickstart/python) to create a new project, enable the Gmail API, and download your `credentials.json` file.
     - Place the `credentials.json` file in the root of this project.
 
-**Configuration (Optional):**
+6.  **Configuration (Optional):**
 
     You can configure the script's behavior by creating a `.env` file in the project root. Copy the `.env.example` file and modify the values:
 
