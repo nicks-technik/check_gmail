@@ -2,38 +2,13 @@
 
 This program uses the Gmail API to identify duplicate emails with the same subject and timestamp but different sizes (due to varying attachments).
 
-## Setup
 
-1.  **Install `uv`:**
-
-    ```bash
-    pip install uv
-    ```
-
-2.  **Create a virtual environment:**
-
-    ```bash
-    uv venv
-    ```
-
-3.  **Activate the virtual environment:**
-
-    ```bash
-    source .venv/bin/activate
-    ```
-
-4.  **Install dependencies:**
-
-    ```bash
-    uv pip install .
-    ```
-
-5.  **Set up Gmail API credentials:**
+**Set up Gmail API credentials:**
 
     - Follow the instructions in the [Google Cloud documentation](https://developers.google.com/gmail/api/quickstart/python) to create a new project, enable the Gmail API, and download your `credentials.json` file.
     - Place the `credentials.json` file in the root of this project.
 
-6.  **Configuration (Optional):**
+**Configuration (Optional):**
 
     You can configure the script's behavior by creating a `.env` file in the project root. Copy the `.env.example` file and modify the values:
 
@@ -44,7 +19,8 @@ This program uses the Gmail API to identify duplicate emails with the same subje
     Available options:
 
     - `LOG_FILE`: Path to the log file (default: `gmail_check.log`)
-    - `LOG_LEVEL`: Logging level (e.g., `INFO`, `DEBUG`, `WARNING`, `ERROR`) (default: `INFO`)
+    - `LOG_LEVEL`: Logging level for the log file (e.g., `INFO`, `DEBUG`, `WARNING`, `ERROR`) (default: `INFO`)
+    - `CONSOLE_LOG_LEVEL`: Logging level for the console (e.g., `INFO`, `DEBUG`, `WARNING`, `ERROR`) (default: `INFO`)
     - `SCOPES`: Comma-separated Gmail API scopes (default: `https://www.googleapis.com/auth/gmail.readonly`)
     - `FETCH_SLEEP`: Sleep duration in seconds between fetching email pages (default: `1`)
     - `PROCESS_SLEEP`: Sleep duration in seconds between processing individual emails (default: `0.1`)
