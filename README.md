@@ -33,6 +33,22 @@ This program uses the Gmail API to identify duplicate emails with the same subje
     - Follow the instructions in the [Google Cloud documentation](https://developers.google.com/gmail/api/quickstart/python) to create a new project, enable the Gmail API, and download your `credentials.json` file.
     - Place the `credentials.json` file in the root of this project.
 
+6.  **Configuration (Optional):**
+
+    You can configure the script's behavior by creating a `.env` file in the project root. Copy the `.env.example` file and modify the values:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    Available options:
+
+    - `LOG_FILE`: Path to the log file (default: `gmail_check.log`)
+    - `LOG_LEVEL`: Logging level (e.g., `INFO`, `DEBUG`, `WARNING`, `ERROR`) (default: `INFO`)
+    - `SCOPES`: Comma-separated Gmail API scopes (default: `https://www.googleapis.com/auth/gmail.readonly`)
+    - `FETCH_SLEEP`: Sleep duration in seconds between fetching email pages (default: `1`)
+    - `PROCESS_SLEEP`: Sleep duration in seconds between processing individual emails (default: `0.1`)
+
 ## Usage
 
 Run the program from the command line:

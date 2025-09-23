@@ -18,7 +18,7 @@ This document outlines best practices for interacting with Gemini, the AI assist
 ## Tool Usage
 
 - **`uv` for project management:** Use `uv` to manage dependencies and run scripts. For example, use `uv run` to execute scripts.
-- **`dotenv` for environment variables:** Store sensitive information like API keys in a `.env` file.
+- **`dotenv` for environment variables:** Store sensitive information like API keys in a `.env` file. Also, use it to configure script behavior (e.g., `FETCH_SLEEP`, `PROCESS_SLEEP`, `LOG_LEVEL`).
 
 ## Communication
 
