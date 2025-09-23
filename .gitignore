@@ -13,3 +13,4 @@ token.json
 gmail_check.log
 uv.lock
 .python-version
+.gemini/settings.json

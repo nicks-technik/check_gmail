@@ -228,6 +228,7 @@ def find_and_log_duplicates(emails):
         return
 
     logger.info(f"Found {len(emails)} unique email groups.")
+
     duplicate_count = 0
     # Iterate through the grouped emails.
     for (subject, date, hour, minute), sizes in emails.items():
