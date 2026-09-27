@@ -6,6 +6,7 @@ from collections import defaultdict
 import coloredlogs
 from dateutil import parser
 from dotenv import load_dotenv
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -72,7 +73,14 @@ def get_gmail_service():
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             # Refresh the token if it's expired and a refresh token is available.
-            creds.refresh(Request())
+            try:
+                creds.refresh(Request())
+            except RefreshError as refresh_error:
+                raise SystemExit(
+                    f"Token refresh failed ({refresh_error}). The saved token is "
+                    "expired or revoked - delete token.json and re-run to "
+                    "re-authorize."
+                ) from refresh_error
         else:
             # Start the OAuth flow to get new credentials.
             # The client_secrets.json file (renamed to credentials.json) is required here.
